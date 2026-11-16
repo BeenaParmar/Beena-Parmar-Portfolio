@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beena Ashok Parmar | Web & Software Developer Portfolio</title>
+
+    <!-- SEO & Metadata -->
+    <meta name="description"
+        content="Beena Ashok Parmar — Information Technology graduate and aspiring Web/Full Stack Developer. Experienced with MySQL, HTML5, CSS3, JavaScript, Java, and responsive UI design.">
+    <meta name="keywords"
+        content="Beena Parmar, Beena Ashok Parmar, Web Developer, Full Stack Developer, Software Developer, IT Fresher, MySQL, Java, HTML5, CSS3, Portfolio">
+    <meta name="author" content="Beena Ashok Parmar">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Beena Ashok Parmar | Web & Software Developer Portfolio">
+    <meta property="og:description"
+        content="IT Graduate & Aspiring Full Stack Developer from Vasai, Mumbai. View my projects, internships, skills, and resume.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon (Inline SVG BP Monogram) -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%232563eb%22/><text x=%2250%22 y=%2263%22 font-size=%2244%22 font-family=%22sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22white%22>BP</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons CDN -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom clean scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .badge-in-progress {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            color: #92400e;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 border-b border-slate-200/80 glass-nav transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+
+            <!-- Logo / Name -->
+            <a href="#home" class="flex items-center gap-2.5 group">
+                <div
+                    class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-700 to-blue-500 text-white flex items-center justify-center font-bold text-sm shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    BP
+                </div>
+                <div>
+                    <span
+                        class="font-bold text-slate-900 tracking-tight block text-sm sm:text-base group-hover:text-brand-600 transition-colors">Beena
+                        Parmar</span>
+                    <span class="text-[11px] text-slate-500 font-medium block">IT Graduate &bull; Fresher</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-brand-600 transition-colors">About</a>
+                <a href="#skills" class="hover:text-brand-600 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-brand-600 transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-brand-600 transition-colors">Internships</a>
+                <a href="#education" class="hover:text-brand-600 transition-colors">Education</a>
+            </nav>
+
+            <!-- Right Fast Actions -->
+            <div class="flex items-center gap-2">
+                <!-- Resume Button -->
+                <button onclick="openResumeModal()"
+                    class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+                    title="View Resume">
+                    <i class="ph ph-file-text text-base text-emerald-600"></i>
+                    <span class="hidden sm:inline">Resume</span>
+                </button>
+
+                <!-- LinkedIn Button -->
+                <a id="navLinkedInBtn" href="https://www.linkedin.com/in/beena-parmar-02b271319/" target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-[#0a66c2] hover:bg-[#004182] text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+                    title="View LinkedIn Profile">
+                    <i class="ph ph-linkedin-logo text-base"></i>
+                    <span class="hidden sm:inline">LinkedIn</span>
+                </a>
+
+                <!-- GitHub Button -->
+                <a href="https://github.com/BeenaParmar" target="_blank" rel="noopener noreferrer"
+                    class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium flex items-center gap-1.5 transition-all shadow-sm"
+                    title="View GitHub Profile">
+                    <i class="ph ph-github-logo text-base"></i>
+                    <span class="hidden sm:inline">GitHub</span>
+                </a>
+
+                <!-- Contact CTA -->
+                <a href="#contact"
+                    class="px-3 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold shadow-sm hover:shadow transition-all flex items-center gap-1.5">
+                    <i class="ph ph-paper-plane-tilt"></i>
+                    <span>Let's Talk</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu"
+                    class="md:hidden p-1.5 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors">
+                    <i class="ph ph-list text-xl" id="mobileMenuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu"
+            class="hidden md:hidden border-t border-slate-200/80 bg-white/95 backdrop-blur-md px-4 py-3 space-y-2">
+            <a href="#about" onclick="toggleMobileMenu()"
+                class="block py-2 text-sm font-medium text-slate-700 hover:text-brand-600">About</a>
+            <a href="#skills" onclick="toggleMobileMenu()"
+                class="block py-2 text-sm font-medium text-slate-700 hover:text-brand-600">Skills</a>
+            <a href="#projects" onclick="toggleMobileMenu()"
+                class="block py-2 text-sm font-medium text-slate-700 hover:text-brand-600">Projects</a>
+            <a href="#experience" onclick="toggleMobileMenu()"
+                class="block py-2 text-sm font-medium text-slate-700 hover:text-brand-600">Internships</a>
+            <a href="#education" onclick="toggleMobileMenu()"
+                class="block py-2 text-sm font-medium text-slate-700 hover:text-brand-600">Education</a>
+            <a href="#contact" onclick="toggleMobileMenu()"
+                class="block py-2 text-sm font-medium text-slate-700 hover:text-brand-600">Contact</a>
+            <div class="pt-2 border-t border-slate-100 flex items-center gap-2">
+                <button onclick="toggleMobileMenu(); openResumeModal();"
+                    class="flex-1 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm">
+                    <i class="ph ph-file-text text-base"></i> Resume
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- RESUME VIEWER MODAL -->
+    <div id="resumeModal"
+        class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 md:p-6 transition-all duration-300 opacity-0"
+        onclick="handleBackdropClick(event)">
+        <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[94vh] transform transition-all scale-95 duration-300"
+            id="resumeModalCard">
+
+            <!-- Modal Header -->
+            <div
+                class="px-4 sm:px-6 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-3 shrink-0">
+                <div class="flex items-center gap-2.5">
+                    <div
+                        class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">
+                        <i class="ph ph-file-text"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">Beena Ashok Parmar —
+                            Resume</h3>
+                        <p class="text-[11px] text-slate-500">Resume Preview &bull; IT Graduate</p>
+                    </div>
+                </div>
+
+                <!-- Modal Actions -->
+                <div class="flex items-center gap-2">
+                    <!-- Download Image -->
+                    <a href="Beena_Parmar_Resume_HD-1.png" download="Beena_Ashok_Parmar_Resume.png"
+                        class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all"
+                        title="Download Resume">
+                        <i class="ph ph-download-simple text-sm"></i>
+                        <span class="hidden sm:inline">Download</span>
+                    </a>
+
+                    <!-- Open Full Size in New Tab -->
+                    <a href="Beena_Parmar_Resume_HD-1.png" target="_blank" rel="noopener noreferrer"
+                        class="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all"
+                        title="Open image in full size">
+                        <i class="ph ph-arrow-square-out text-sm"></i>
+                        <span class="hidden sm:inline">Open Full Size</span>
+                    </a>
+
+                    <!-- Close Button -->
+                    <button onclick="closeResumeModal()" aria-label="Close Resume Modal"
+                        class="w-8 h-8 rounded-lg bg-slate-200/80 hover:bg-slate-300 text-slate-700 flex items-center justify-center text-lg transition-colors">
+                        <i class="ph ph-x"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Resume Image Viewer Area -->
+            <div
+                class="relative flex-1 bg-slate-100 overflow-y-auto min-h-[60vh] max-h-[80vh] p-3 sm:p-6 flex justify-center">
+                <img src="Beena_Parmar_Resume_HD-1.png" alt="Beena Ashok Parmar Resume"
+                    class="w-full max-w-3xl rounded-xl shadow-md border border-slate-200 object-contain self-start" />
+            </div>
+
+            <!-- Modal Footer Bar -->
+            <div
+                class="px-4 py-2.5 bg-slate-50 border-t border-slate-200 text-xs text-slate-600 flex items-center justify-between shrink-0">
+                <span class="text-[11px] text-slate-500">
+                    Press <kbd
+                        class="px-1.5 py-0.5 text-[10px] bg-slate-200 border border-slate-300 rounded text-slate-700 font-mono">ESC</kbd>
+                    or click outside to close
+                </span>
+                <button type="button" onclick="closeResumeModal()"
+                    class="px-3 py-1 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-xs transition-colors flex items-center gap-1">
+                    <i class="ph ph-x"></i> Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section id="home"
+            class="pt-12 pb-16 sm:pt-20 sm:pb-24 bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200/70">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+                    <!-- Left Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+
+                        <!-- Open to Work Badge -->
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-medium">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>Available for Immediate Joining &bull; IT Fresher</span>
+                        </div>
+
+                        <!-- Target Roles Headline -->
+                        <div class="space-y-2">
+                            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                                Aspiring <span class="text-brand-600">Web Developer</span> & Full Stack Developer
+                            </h1>
+                            <p class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-500">
+                                UI/UX Developer &bull; Software Developer &bull; IT Graduate
+                            </p>
+                        </div>
+
+                        <!-- Authentic Intro Paragraph -->
+                        <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+                            Hello! I am <strong class="text-slate-900 font-semibold">Beena Ashok Parmar</strong>, an
+                            enthusiastic Information Technology graduate from <strong>Vasai, Mumbai,
+                                Maharashtra</strong>. I have completed 3 hands-on internships where I built real
+                            websites, managed databases, and developed interactive UI. I am eager to contribute, learn
+                            quickly, and build polished digital experiences.
+                        </p>
+
+                        <!-- Quick Profile Pillars -->
+                        <div
+                            class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-medium text-slate-600 pt-1">
+                            <div
+                                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+                                <i class="ph ph-map-pin text-brand-600 text-base"></i> Vasai, Mumbai, Maharashtra
+                            </div>
+                            <div
+                                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+                                <i class="ph ph-envelope-simple text-brand-600 text-base"></i> beenaparmar5605@gmail.com
+                            </div>
+                            <div
+                                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+                                <i class="ph ph-phone text-emerald-600 text-base"></i> +91 9359537528
+                            </div>
+                        </div>
+
+                        <!-- Action CTAs -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                            <button onclick="openResumeModal()"
+                                class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md shadow-emerald-600/20 transition-all flex items-center gap-2">
+                                <i class="ph ph-file-text text-lg"></i> Resume
+                            </button>
+                            <a href="#projects"
+                                class="px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md shadow-brand-500/20 transition-all flex items-center gap-2">
+                                <i class="ph ph-folder-open text-base"></i> View My Projects
+                            </a>
+                            <a id="heroLinkedInBtn" href="https://www.linkedin.com/in/beena-parmar-02b271319/"
+                                target="_blank" rel="noopener noreferrer"
+                                class="px-5 py-3 rounded-xl bg-[#0a66c2] hover:bg-[#004182] text-white font-semibold text-sm transition-all flex items-center gap-2 shadow-sm">
+                                <i class="ph ph-linkedin-logo text-lg"></i> LinkedIn Profile
+                            </a>
+                            <a href="https://github.com/BeenaParmar" target="_blank" rel="noopener noreferrer"
+                                class="px-4 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-sm transition-all flex items-center gap-2 shadow-sm">
+                                <i class="ph ph-github-logo text-lg text-slate-900"></i> GitHub
+                            </a>
+                            <button type="button"
+                                onclick="copyToClipboard('beenaparmar5605@gmail.com', 'Email copied: beenaparmar5605@gmail.com')"
+                                class="px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium transition-all flex items-center gap-1.5"
+                                title="Click to copy email">
+                                <i class="ph ph-copy"></i> Copy Email
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Card: Quick Summary & GitHub Advice -->
+                    <div class="lg:col-span-5 space-y-4">
+
+                        <!-- Quick Profile Snapshot Card -->
+                        <div
+                            class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-xl shadow-slate-200/50 relative overflow-hidden">
+                            <div class="flex items-center gap-3 pb-5 border-b border-slate-100">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-2xl font-bold">
+                                    <i class="ph ph-user-circle"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900 text-base">Beena Ashok Parmar</h3>
+                                    <p class="text-xs text-slate-500">Fresher seeking Web / Software Developer Roles</p>
+                                </div>
+                            </div>
+
+                            <!-- Key Strengths Grid -->
+                            <div class="py-4 space-y-2.5 text-xs text-slate-600">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-500">Top Strengths:</span>
+                                    <span
+                                        class="font-semibold text-brand-700 bg-brand-50 px-2.5 py-0.5 rounded-full">MySQL,
+                                        HTML5, CSS3</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-500">Working Knowledge:</span>
+                                    <span class="font-medium text-slate-700">Java (Basics), Bootstrap, JS, PHP,
+                                        Oracle</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-500">Education:</span>
+                                    <span class="font-medium text-slate-700">B.Sc. IT (2023–2026)</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-500">Internships Completed:</span>
+                                    <span class="font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">3
+                                        Tenures</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-slate-500">Location:</span>
+                                    <span class="font-medium text-slate-700">Vasai, Mumbai, MH</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <button onclick="openResumeModal()"
+                                    class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+                                    <i class="ph ph-file-text"></i> Resume
+                                </button>
+                                <a href="#contact"
+                                    class="text-xs font-bold text-brand-600 hover:text-brand-700 flex items-center gap-1">
+                                    Contact Me &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- GitHub Pro Tip Card -->
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-16 sm:py-20 bg-white border-b border-slate-200/70">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+                <div class="max-w-3xl">
+                    <span
+                        class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md">About
+                        Me</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Dedicated IT Fresher with real
+                        project and internship experience</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 text-slate-600 text-sm leading-relaxed">
+                    <div class="space-y-4">
+                        <p>
+                            I recently graduated with a <strong>Bachelor of Science in Information Technology (B.Sc.
+                                IT)</strong>. Rather than only studying theoretical concepts, I actively took on
+                            internships during my studies to gain practical exposure to how web applications and
+                            databases work in the real world.
+                        </p>
+                        <p>
+                            My primary strengths are in <strong>relational database management with MySQL,
+                                Oracle</strong> and
+                            crafting clean, responsive user interfaces with <strong>HTML5 and CSS3</strong>. I also know
+                            the fundamentals of <strong>Java, Bootstrap, and JavaScript</strong>, allowing me to
+                            understand both front-end aesthetics and backend flows.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <p>
+                            I am targeting roles as a <strong>Web Developer, Full Stack Developer, UI/UX Developer, or
+                                Software Developer</strong>. As a fresher, I bring strong dedication, willingness to
+                            learn new technologies quickly, and a disciplined work ethic.
+                        </p>
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                            <div class="font-bold text-slate-800 text-xs uppercase tracking-wider">What I bring to your
+                                team:</div>
+                            <ul class="space-y-1.5 text-xs text-slate-700">
+                                <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-600"></i>
+                                    Clear understanding of relational data and writing queries in MySQL and Oracle.</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-600"></i>
+                                    Responsive, mobile-friendly landing pages and UI with HTML5/CSS3.</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-600"></i>
+                                    Punctual, collaborative, and eager to grow under senior mentorship.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HONEST & CLEAR SKILLS SECTION -->
+        <section id="skills" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/70">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span
+                        class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md">Technical
+                        Skillset</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Honest & Categorized Competencies
+                    </h2>
+                    <p class="text-sm text-slate-500 mt-2">Clearly organized by my core strengths, foundational
+                        knowledge, and development tools.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <!-- Core Strengths (Expertise) -->
+                    <div
+                        class="bg-white rounded-2xl p-6 border-2 border-brand-500 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-brand-50 text-brand-700 font-bold text-xs uppercase tracking-wide">Core
+                                    Strengths</span>
+                                <i class="ph ph-star text-amber-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Primary Expertise</h3>
+                            <p class="text-xs text-slate-500 mb-5">Areas where I am most confident and have written
+                                extensive code and queries.</p>
+
+                            <div class="space-y-3.5">
+                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                                        <span class="flex items-center gap-2"><i
+                                                class="ph ph-database text-brand-600 text-base"></i> MySQL & SQL</span>
+                                        <span class="text-brand-600">Strong</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mt-1">Table design, keys, relational queries,
+                                        phpMyAdmin management.</p>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                                        <span class="flex items-center gap-2"><i
+                                                class="ph ph-browsers text-orange-600 text-base"></i> HTML5</span>
+                                        <span class="text-brand-600">Strong</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mt-1">Semantic layout, forms, accessible web
+                                        structure.</p>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                                        <span class="flex items-center gap-2"><i
+                                                class="ph ph-paint-brush text-blue-600 text-base"></i> CSS3</span>
+                                        <span class="text-brand-600">Strong</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mt-1">Responsive styling, flexbox, mobile
+                                        layouts, UI aesthetics.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 pt-3 border-t border-slate-100 text-[11px] text-slate-400 font-medium">
+                            Verified through e-commerce & corporate landing pages.
+                        </div>
+                    </div>
+
+                    <!-- Basics & Working Knowledge -->
+                    <div
+                        class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-bold text-xs uppercase tracking-wide">Working
+                                    Knowledge</span>
+                                <i class="ph ph-book-open text-blue-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Foundational Skills</h3>
+                            <p class="text-xs text-slate-500 mb-5">Languages & frameworks where I know the core
+                                fundamentals and syntax.</p>
+
+                            <div class="space-y-3.5">
+                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                                        <span class="flex items-center gap-2"><i
+                                                class="ph ph-code text-red-600 text-base"></i> Java (Basics)</span>
+                                        <span class="text-slate-500">Basics</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mt-1">Core Java, OOP principles, simple
+                                        Servlets & JSP, JDBC.</p>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                                        <span class="flex items-center gap-2"><i
+                                                class="ph ph-layout text-purple-600 text-base"></i> Bootstrap
+                                            (3/4/5)</span>
+                                        <span class="text-slate-500">Basics</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mt-1">Grid containers, utility classes,
+                                        responsive cards and navbar.</p>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                                        <span class="flex items-center gap-2"><i
+                                                class="ph ph-brackets-curly text-amber-500 text-base"></i> JavaScript &
+                                            PHP</span>
+                                        <span class="text-slate-500">Basics</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mt-1">Client-side form validation, basic PHP
+                                        dynamic routing & handling.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 pt-3 border-t border-slate-100 text-[11px] text-slate-400 font-medium">
+                            Eager to expand and deepen under company guidance.
+                        </div>
+                    </div>
+
+                    <!-- Development Tools & Workflow -->
+                    <div
+                        class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-bold text-xs uppercase tracking-wide">Workflow
+                                    & Tools</span>
+                                <i class="ph ph-wrench text-slate-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Tools & Environments</h3>
+                            <p class="text-xs text-slate-500 mb-5">Software and daily utilities used for development and
+                                local testing.</p>
+
+                            <div class="space-y-3.5">
+                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                                        <span class="flex items-center gap-2"><i
+                                                class="ph ph-git-branch text-orange-500 text-base"></i> Git &
+                                            GitHub</span>
+                                        <span class="text-emerald-600 font-semibold">Active</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mt-1">Code versioning, commits, pushing
+                                        repositories, pull requests.</p>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                                        <span class="flex items-center gap-2"><i
+                                                class="ph ph-desktop text-blue-500 text-base"></i> VS Code &
+                                            Eclipse</span>
+                                        <span class="text-slate-700">Daily IDE</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mt-1">Code editing, debugging front-end files,
+                                        extensions.</p>
+                                </div>
+
+                                <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                                    <div class="flex items-center justify-between text-xs font-bold text-slate-800">
+                                        <span class="flex items-center gap-2"><i
+                                                class="ph ph-map-pin-line text-emerald-600 text-base"></i> Google Maps &
+                                            XAMPP</span>
+                                        <span class="text-slate-700">Integration</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mt-1">Local Apache/MySQL stack testing & Google
+                                        Maps embedding.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 pt-3 border-t border-slate-100 text-[11px] text-slate-400 font-medium">
+                            Self-sufficient in setting up local development setups.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION (INCLUDING RAKSHA ENGINEERING UNDER PROCESS) -->
+        <section id="projects" class="py-16 sm:py-20 bg-white border-b border-slate-200/70">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <span
+                            class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md">My
+                            Work</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Featured Projects</h2>
+                        <p class="text-sm text-slate-500 mt-1">Hands-on applications and landing pages I have built and
+                            am currently building.</p>
+                    </div>
+                    <a href="https://github.com/BeenaParmar" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-brand-600 transition-colors">
+                        <i class="ph ph-github-logo text-base"></i> View all source codes on GitHub &rarr;
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- PROJECT 1: RAKSHA ENGINEERING (PRIVATE CLIENT PROJECT) -->
+                    <div
+                        class="rounded-2xl border-2 border-amber-300 bg-gradient-to-br from-amber-50/40 via-white to-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden">
+                        <!-- Top Banner Badge -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                                <i class="ph ph-lock-key text-amber-600"></i> Private Client Project
+                            </span>
+                            <span
+                                class="text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded">NDA
+                                / Proprietary</span>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                Raksha Engineering & Manufacturing
+                            </h3>
+                            <p class="text-xs font-semibold text-brand-700 mt-1">Corporate Landing Page & Industrial
+                                Showcase Website</p>
+
+                            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+                                An informative multi-page corporate website designed to establish an online presence for
+                                Raksha Engineering and Manufacturing. Visitors can learn about the company, browse
+                                manufactured engineering products, read industrial blogs, and submit direct business
+                                inquiries. As this is a proprietary client project, the codebase and deployment are
+                                private.
+                            </p>
+
+                            <!-- Structure Highlights -->
+                            <div class="mt-4 p-3.5 rounded-xl bg-white border border-amber-200/80 space-y-2 text-xs">
+                                <div
+                                    class="font-bold text-slate-800 text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+                                    <i class="ph ph-browsers text-amber-600"></i> Included Pages & Modules:
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-700">
+                                    <span class="flex items-center gap-1"><i class="ph ph-check text-emerald-600"></i>
+                                        Homepage</span>
+                                    <span class="flex items-center gap-1"><i class="ph ph-check text-emerald-600"></i>
+                                        About Us Page</span>
+                                    <span class="flex items-center gap-1"><i class="ph ph-check text-emerald-600"></i>
+                                        Product Catalog</span>
+                                    <span class="flex items-center gap-1"><i class="ph ph-check text-emerald-600"></i>
+                                        Technical Blog</span>
+                                </div>
+                                <div
+                                    class="pt-2 border-t border-slate-100 flex items-start gap-1.5 text-[11px] text-slate-600">
+                                    <i class="ph ph-map-pin text-brand-600 shrink-0 mt-0.5"></i>
+                                    <span><strong>Contact Us & Google Maps:</strong> Inquire about products with
+                                        integrated location maps for factory directions.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tech Tags & Inquiry Action -->
+                        <div
+                            class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">HTML5</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">CSS3</span>
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">JavaScript</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">Google
+                                    Maps</span>
+                            </div>
+                            <a href="#contact" onclick="requestProjectAccess('Raksha Engineering & Manufacturing')"
+                                class="px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold flex items-center gap-1.5 transition-colors shadow-sm">
+                                <i class="ph ph-envelope-simple text-sm text-amber-700"></i> Request Demo / Walkthrough
+                                &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 2: BlossomBay -->
+                    <div
+                        class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold flex items-center gap-1">
+                                    <i class="ph ph-check-circle"></i> Completed Full-Stack
+                                </span>
+                                <span class="text-xs font-mono text-slate-400">E-Commerce</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-slate-900">BlossomBay</h3>
+                            <p class="text-xs font-semibold text-brand-700 mt-1">Full-Stack Gifting E-Commerce Platform
+                            </p>
+
+                            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+                                A complete online gifting portal with customer registration, secure login, catalog
+                                search, cart/wishlist management, and checkout. Designed and integrated relational MySQL
+                                tables for orders and inventory.
+                            </p>
+
+                            <div
+                                class="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs space-y-1.5 text-slate-600">
+                                <div class="font-bold text-slate-800 text-[11px] uppercase tracking-wide">Key Features
+                                    Implemented:</div>
+                                <div>&bull; COD & UPI payment simulation with 6-digit OTP verification.</div>
+                                <div>&bull; Simulated real-time delivery order tracking system.</div>
+                                <div>&bull; Product database management using phpMyAdmin and MySQL.</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">PHP</span>
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">MySQL</span>
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">HTML/CSS</span>
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">Bootstrap</span>
+                            </div>
+                            <a href="https://github.com/BeenaParmar/BlossomBay" target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-xs font-bold text-brand-600 hover:text-brand-700 flex items-center gap-1">
+                                <i class="ph ph-code"></i> Code on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 3: Healthcare Portal -->
+                    <div
+                        class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold flex items-center gap-1">
+                                    <i class="ph ph-check-circle"></i> Completed Front-End
+                                </span>
+                                <span class="text-xs font-mono text-slate-400">UI/UX Project</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-slate-900">Healthcare Appointment Portal</h3>
+                            <p class="text-xs font-semibold text-brand-700 mt-1">Doctor Appointment Scheduling
+                                Application</p>
+
+                            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+                                A front-end website created to make booking doctor consultations effortless. Focused
+                                heavily on UI/UX design, accessible navigation, clean color contrast, and fluid
+                                responsiveness on mobile devices.
+                            </p>
+
+                            <div
+                                class="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs space-y-1.5 text-slate-600">
+                                <div class="font-bold text-slate-800 text-[11px] uppercase tracking-wide">Key Features:
+                                </div>
+                                <div>&bull; Doctor specialty profiles with patient feedback reviews.</div>
+                                <div>&bull; User-friendly appointment booking date & time interface.</div>
+                                <div>&bull; Mobile-optimized responsive layout without horizontal scrolling.</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">HTML5</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">CSS3</span>
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">JavaScript</span>
+                                <span
+                                    class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">UI/UX</span>
+                            </div>
+                            <a href="https://github.com/BeenaParmar/Medcare" target="_blank" rel="noopener noreferrer"
+                                class="text-xs font-bold text-brand-600 hover:text-brand-700 flex items-center gap-1">
+                                <i class="ph ph-code"></i> Code on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 4: Hybrid ERP Capstone -->
+                    <div
+                        class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-bold flex items-center gap-1">
+                                    <i class="ph ph-check-circle"></i> Internship Project
+                                </span>
+                                <span class="text-xs font-mono text-slate-400">Java / Database</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-slate-900">Hybrid ERP Enterprise Module</h3>
+                            <p class="text-xs font-semibold text-brand-700 mt-1">Java & MySQL Enterprise Application</p>
+
+                            <p class="text-slate-600 text-xs sm:text-sm mt-3 leading-relaxed">
+                                Developed as part of my internship at SDAC. Connected relational MySQL database tables
+                                with Java back-end servlets using JDBC for managing enterprise transactions and records.
+                            </p>
+
+                            <div
+                                class="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs space-y-1.5 text-slate-600">
+                                <div class="font-bold text-slate-800 text-[11px] uppercase tracking-wide">Key Focus
+                                    Areas:</div>
+                                <div>&bull; Core Java logic with Servlets & JSP for page requests.</div>
+                                <div>&bull; Relational database connectivity via JDBC with MySQL.</div>
+                                <div>&bull; Version control using Git and GitHub for clean teamwork.</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex flex-wrap gap-1.5 text-xs font-mono">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">Core
+                                    Java</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">Servlets &
+                                    JSP</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-medium">MySQL
+                                    (JDBC)</span>
+                            </div>
+                            <a href="#contact" onclick="requestProjectAccess('Hybrid ERP Enterprise Module (SDAC)')"
+                                class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center gap-1.5 transition-colors">
+                                <i class="ph ph-lock-key text-slate-400"></i> Internal SDAC Repo &bull; Inquire &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- INTERNSHIP EXPERIENCE SECTION -->
+        <section id="experience" class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200/70">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+                <div class="text-center max-w-xl mx-auto mb-12">
+                    <span
+                        class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md">Practical
+                        Experience</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Completed Internships</h2>
+                    <p class="text-sm text-slate-500 mt-1">Real-world experience gained during my IT degree tenure.</p>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- Internship 1: Mahee Nexus EduTech -->
+                    <div
+                        class="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600">Internship
+                                    Completion</span>
+                                <h3 class="text-lg font-bold text-slate-900">Software Engineering Intern</h3>
+                                <p class="text-xs text-slate-500 font-medium">Mahee Nexus EduTech &bull; Remote (Mumbai,
+                                    India)</p>
+                            </div>
+                            <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-mono shrink-0">
+                                21/07/2026 – 21/10/2026
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5 text-xs sm:text-sm text-slate-600 list-disc list-inside">
+                            <li>Assisted in building responsive web interfaces and improving UI performance across
+                                devices.</li>
+                            <li>Contributed to mobile application UI/UX design, flow wireframing, and frontend styling.
+                            </li>
+                            <li>Collaborated with team members on production-ready EduTech features, adhering to clean
+                                coding standards.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Internship 2: SDAC -->
+                    <div
+                        class="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600">Internship
+                                    Completion</span>
+                                <h3 class="text-lg font-bold text-slate-900">Hybrid Application Development Intern</h3>
+                                <p class="text-xs text-slate-500 font-medium">SDAC &bull; Borivali, Mumbai, Maharashtra
+                                </p>
+                            </div>
+                            <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-mono shrink-0">
+                                24/07/2025 – 12/01/2026
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5 text-xs sm:text-sm text-slate-600 list-disc list-inside">
+                            <li>Developed a hybrid enterprise ERP application using Core Java, Servlets & JSP, MySQL,
+                                and HTML/CSS.</li>
+                            <li>Integrated relational database connectivity using JDBC to process queries and store
+                                business records.</li>
+                            <li>Used Git and GitHub for collaborative version control and resolved code issues through
+                                systematic debugging.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Internship 3: Cloud Chemicals -->
+                    <div
+                        class="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600">Internship
+                                    Completion</span>
+                                <h3 class="text-lg font-bold text-slate-900">Secondary Data Researcher Executive
+                                    (Intern)</h3>
+                                <p class="text-xs text-slate-500 font-medium">Cloud Chemicals &bull; Dahisar, Mumbai,
+                                    Maharashtra</p>
+                            </div>
+                            <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-mono shrink-0">
+                                23/12/2024 – 26/03/2025
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5 text-xs sm:text-sm text-slate-600 list-disc list-inside">
+                            <li>Gathered, analyzed, and validated large-scale datasets from online repositories and
+                                official sources.</li>
+                            <li>Maintained spreadsheets in MS Excel and Google Workspace, preparing clear reports with
+                                high data consistency.</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION & LANGUAGES SECTION -->
+        <section id="education" class="py-16 sm:py-20 bg-white border-b border-slate-200/70">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <!-- Degree -->
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-2xl shrink-0">
+                            <i class="ph ph-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-brand-600">2023 – 2026</span>
+                            <h4 class="text-base font-bold text-slate-900 mt-0.5">B.Sc. in Information Technology</h4>
+                            <p class="text-xs text-slate-600 mt-1">Thakur Ramnarayan College of Arts & Commerce</p>
+                            <p class="text-[11px] text-slate-400 mt-0.5">Dahisar, Mumbai, Maharashtra</p>
+                        </div>
+                    </div>
+
+                    <!-- HSC -->
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl shrink-0">
+                            <i class="ph ph-certificate"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-blue-600">2021 – 2023</span>
+                            <h4 class="text-base font-bold text-slate-900 mt-0.5">HSC – Science & IT</h4>
+                            <p class="text-xs text-slate-600 mt-1">Holy Family Junior College</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Score: 64.56% &bull; Vasai, Palghar</p>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl shrink-0">
+                            <i class="ph ph-translate"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-emerald-700">Communication</span>
+                            <h4 class="text-base font-bold text-slate-900 mt-0.5">Languages Known</h4>
+                            <div class="text-xs text-slate-700 mt-2 space-y-1">
+                                <div><span class="font-bold text-slate-900">English:</span> Fluent</div>
+                                <div><span class="font-bold text-slate-900">Hindi:</span> Fluent</div>
+                                <div><span class="font-bold text-slate-900">Gujarati:</span> Mother Tongue</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT & HIRE ME SECTION -->
+        <section id="contact" class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 to-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+                <div class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-12 shadow-xl shadow-slate-200/50">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+                        <!-- Left Info -->
+                        <div class="lg:col-span-5 space-y-6">
+                            <div>
+                                <span
+                                    class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md">Get
+                                    in Touch</span>
+                                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Let's discuss
+                                    opportunities!</h2>
+                                <p class="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed">
+                                    I am actively looking for entry-level positions as a <strong>Web Developer, Full
+                                        Stack Developer, UI/UX Developer, or Software Developer</strong>. Feel free to
+                                    contact me directly!
+                                </p>
+                            </div>
+
+                            <!-- Contact Cards with One-Click Copy -->
+                            <div class="space-y-3 text-xs">
+
+                                <!-- Email (Lowercase 'b') -->
+                                <div
+                                    class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                                    <div class="overflow-hidden mr-2">
+                                        <span class="block text-[10px] uppercase font-bold text-slate-400">Email
+                                            Address</span>
+                                        <a href="mailto:beenaparmar5605@gmail.com"
+                                            class="font-semibold text-slate-800 hover:text-brand-600 truncate block">
+                                            beenaparmar5605@gmail.com
+                                        </a>
+                                    </div>
+                                    <button onclick="copyToClipboard('beenaparmar5605@gmail.com', 'Email copied!')"
+                                        class="px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-brand-500 text-brand-600 font-medium transition-colors shrink-0 flex items-center gap-1 shadow-sm">
+                                        <i class="ph ph-copy"></i> Copy
+                                    </button>
+                                </div>
+
+                                <!-- Phone / WhatsApp -->
+                                <div
+                                    class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                                    <div>
+                                        <span class="block text-[10px] uppercase font-bold text-slate-400">Phone &
+                                            WhatsApp</span>
+                                        <a href="tel:+919359537528"
+                                            class="font-semibold text-slate-800 hover:text-brand-600 block">
+                                            +91 9359537528
+                                        </a>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 shrink-0">
+                                        <a href="https://wa.me/919359537528" target="_blank" rel="noopener noreferrer"
+                                            class="px-2.5 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 font-medium hover:bg-emerald-100 transition-colors flex items-center gap-1 shadow-sm">
+                                            <i class="ph ph-whatsapp-logo text-sm"></i> WhatsApp
+                                        </a>
+                                        <button onclick="copyToClipboard('+919359537528', 'Phone number copied!')"
+                                            class="px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-brand-500 text-slate-700 font-medium transition-colors shadow-sm">
+                                            <i class="ph ph-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Location: Vasai, Mumbai, Maharashtra -->
+                                <div
+                                    class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                                    <div>
+                                        <span class="block text-[10px] uppercase font-bold text-slate-400">Primary
+                                            Location</span>
+                                        <span class="font-semibold text-slate-800 block">Vasai, Mumbai,
+                                            Maharashtra</span>
+                                    </div>
+                                    <span
+                                        class="text-xs text-brand-600 bg-brand-50 px-2 py-0.5 rounded font-medium">India</span>
+                                </div>
+
+                                <!-- LinkedIn Direct Card -->
+                                <div
+                                    class="p-3.5 rounded-xl bg-[#0a66c2] text-white flex items-center justify-between shadow-sm">
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="ph ph-linkedin-logo text-2xl text-white"></i>
+                                        <div>
+                                            <span
+                                                class="block text-[10px] text-blue-100 uppercase font-semibold">Professional
+                                                Network</span>
+                                            <span class="font-bold text-xs text-white">LinkedIn Profile</span>
+                                        </div>
+                                    </div>
+                                    <a id="cardLinkedInBtn" href="https://www.linkedin.com/in/beena-parmar-02b271319/"
+                                        target="_blank" rel="noopener noreferrer"
+                                        class="px-3 py-1.5 rounded-lg bg-white/15 hover:bg-white/25 text-white text-xs font-semibold transition-colors flex items-center gap-1">
+                                        Connect &rarr;
+                                    </a>
+                                </div>
+
+                                <!-- GitHub Profile Link Card -->
+                                <div class="p-3.5 rounded-xl bg-slate-900 text-white flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="ph ph-github-logo text-2xl text-white"></i>
+                                        <div>
+                                            <span
+                                                class="block text-[10px] text-slate-400 uppercase font-semibold">Source
+                                                Code Repositories</span>
+                                            <span class="font-bold text-xs text-white">GitHub Profile</span>
+                                        </div>
+                                    </div>
+                                    <a href="https://github.com/BeenaParmar" target="_blank" rel="noopener noreferrer"
+                                        class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors flex items-center gap-1">
+                                        Visit &rarr;
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Right: Interactive & Guaranteed Contact Form -->
+                        <div class="lg:col-span-7 bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="text-lg font-bold text-slate-900">Send a Direct Message</h3>
+                                <span
+                                    class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    Delivered Directly
+                                </span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-4">
+                                Submissions automatically deliver to <strong
+                                    class="text-slate-800">beenaparmar5605@gmail.com</strong> or your WhatsApp.
+                            </p>
+
+                            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Your Name / Company
+                                        *</label>
+                                    <input type="text" id="senderName" required
+                                        placeholder="e.g. John Doe (Hiring Team)"
+                                        class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-xs placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors">
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 mb-1">Your Email *</label>
+                                        <input type="email" id="senderEmail" required placeholder="name@company.com"
+                                            class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-xs placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-700 mb-1">Target Role</label>
+                                        <select id="targetRole"
+                                            class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-xs focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors">
+                                            <option value="Web Developer">Web Developer</option>
+                                            <option value="Full Stack Developer">Full Stack Developer</option>
+                                            <option value="UI/UX Developer">UI/UX Developer</option>
+                                            <option value="Software Developer">Software Developer</option>
+                                            <option value="Interview Opportunity">Interview Opportunity</option>
+                                            <option value="Other">Other Inquiry</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Message *</label>
+                                    <textarea id="senderMessage" rows="4" required
+                                        placeholder="Write your project details or job opening message..."
+                                        class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-xs placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"></textarea>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                                    <!-- Primary Email Dispatch -->
+                                    <button type="submit" id="submitBtn"
+                                        class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-brand-500/20 flex items-center justify-center gap-2">
+                                        <i class="ph ph-envelope-simple text-base"></i> Send to Email
+                                    </button>
+
+                                    <!-- Direct WhatsApp Dispatch -->
+                                    <button type="button" onclick="sendViaWhatsApp()"
+                                        class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2">
+                                        <i class="ph ph-whatsapp-logo text-base"></i> Send on WhatsApp
+                                    </button>
+                                </div>
+                            </form>
+
+                            <!-- In-Card Success / Delivery Confirmation Box -->
+                            <div id="formSuccess"
+                                class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex flex-col gap-2">
+                                <div class="flex items-center gap-2 font-bold text-sm text-emerald-900">
+                                    <i class="ph ph-check-circle text-xl text-emerald-600"></i> Message Triggered to
+                                    Beena's Inbox!
+                                </div>
+                                <p class="text-emerald-700 leading-relaxed text-[11px]">
+                                    Your message was formulated for <strong>beenaparmar5605@gmail.com</strong>. If your
+                                    mail client opened, simply hit "Send". You can also chat directly via WhatsApp:
+                                </p>
+                                <div class="pt-1">
+                                    <button type="button" onclick="sendViaWhatsApp()"
+                                        class="text-xs font-bold text-emerald-800 underline hover:text-emerald-900 flex items-center gap-1">
+                                        <i class="ph ph-whatsapp-logo"></i> Send this message directly via WhatsApp
+                                        instead &rarr;
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Quick Formspree Setup Guide for Zero-Code Inbox Delivery -->
+                            <div
+                                class="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 flex items-start justify-between gap-2">
+                                <span class="flex items-center gap-1.5 text-slate-600">
+                                    <i class="ph ph-shield-check text-brand-600 text-sm shrink-0"></i>
+                                    <span><strong>Recruiter Tip:</strong> You can also email directly to <a
+                                            href="mailto:beenaparmar5605@gmail.com"
+                                            class="text-brand-600 underline">beenaparmar5605@gmail.com</a>.</span>
+                                </span>
+                                <!-- <button type="button" onclick="toggleFormspreeHelper()"
+                                    class="text-[10px] text-slate-400 hover:text-brand-600 underline whitespace-nowrap">
+                                    Form setup info
+                                </button> -->
+                            </div>
+
+                            <!-- Collapsible Formspree Config Tool -->
+                            <div id="formspreeHelperBox"
+                                class="hidden mt-3 p-3 rounded-xl bg-white border border-slate-200 text-[11px] text-slate-600 space-y-2">
+                                <div class="font-bold text-slate-800 text-xs flex items-center gap-1.5">
+                                    <i class="ph ph-gear text-brand-600"></i> 1-Minute Inbox Forwarder (Formspree):
+                                </div>
+                                <p>
+                                    To have submissions directly land in your inbox without opening the sender's mail
+                                    app:
+                                </p>
+                                <ol class="list-decimal list-inside space-y-1 text-[10px] text-slate-700">
+                                    <li>Create a free account on <a href="https://formspree.io" target="_blank"
+                                            class="text-brand-600 underline">formspree.io</a>.</li>
+                                    <li>Click <strong>+ New Form</strong> and set the target to <code
+                                            class="bg-slate-100 px-1 py-0.5 rounded">beenaparmar5605@gmail.com</code>.
+                                    </li>
+                                    <li>Enter your Form ID below and click save:</li>
+                                </ol>
+                                <div class="flex gap-2 pt-1">
+                                    <input type="text" id="customFormspreeId" placeholder="e.g. xpwzyqkr"
+                                        class="w-full px-2.5 py-1.5 text-xs rounded-lg border border-slate-300">
+                                    <button type="button" onclick="saveFormspreeEndpoint()"
+                                        class="px-3 py-1.5 rounded-lg bg-brand-600 text-white font-semibold text-xs whitespace-nowrap">
+                                        Save ID
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-white border-t border-slate-200 text-xs text-slate-500 text-center">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div>
+                <strong>Beena Ashok Parmar</strong> &bull; Vasai, Mumbai, Maharashtra &bull; 2026
+            </div>
+            <div class="flex items-center gap-4 text-slate-600">
+                <a href="#home" class="hover:text-brand-600 transition-colors">&uarr; Back to Top</a>
+                <button type="button" onclick="openResumeModal()"
+                    class="hover:text-brand-600 transition-colors flex items-center gap-1 font-semibold text-emerald-700">
+                    <i class="ph ph-file-text"></i> Resume
+                </button>
+                <a id="footerLinkedInBtn" href="https://www.linkedin.com/in/beena-parmar-02b271319/" target="_blank"
+                    rel="noopener noreferrer" class="hover:text-brand-600 transition-colors">LinkedIn</a>
+                <a href="https://github.com/BeenaParmar" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-brand-600 transition-colors">GitHub</a>
+                <a href="mailto:beenaparmar5605@gmail.com" class="hover:text-brand-600 transition-colors">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // Clean LinkedIn Profile URL
+        const defaultLinkedInUrl = "https://www.linkedin.com/in/beena-parmar-02b271319/";
+        function syncLinkedInUrls(url) {
+            const target = url || localStorage.getItem('beena_linkedin_url') || defaultLinkedInUrl;
+            const ids = ['navLinkedInBtn', 'heroLinkedInBtn', 'cardLinkedInBtn', 'footerLinkedInBtn'];
+            ids.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.href = target;
+            });
+        }
+        syncLinkedInUrls();
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (menu) {
+                menu.classList.toggle('hidden');
+                if (icon) {
+                    if (menu.classList.contains('hidden')) {
+                        icon.classList.remove('ph-x');
+                        icon.classList.add('ph-list');
+                    } else {
+                        icon.classList.remove('ph-list');
+                        icon.classList.add('ph-x');
+                    }
+                }
+            }
+        }
+
+        // Resume Viewer Modal Controls
+        function openResumeModal() {
+            const modal = document.getElementById('resumeModal');
+            const card = document.getElementById('resumeModalCard');
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            void modal.offsetWidth; // Force reflow
+            modal.classList.remove('opacity-0');
+            if (card) {
+                card.classList.remove('scale-95');
+                card.classList.add('scale-100');
+            }
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeResumeModal() {
+            const modal = document.getElementById('resumeModal');
+            const card = document.getElementById('resumeModalCard');
+            if (!modal) return;
+            modal.classList.add('opacity-0');
+            if (card) {
+                card.classList.remove('scale-100');
+                card.classList.add('scale-95');
+            }
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 250);
+        }
+
+        function handleBackdropClick(e) {
+            if (e.target.id === 'resumeModal') {
+                closeResumeModal();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeResumeModal();
+            }
+        });
+
+        // Pre-fill Contact Form when requesting private project details
+        function requestProjectAccess(projectName) {
+            const roleSelect = document.getElementById('targetRole');
+            const messageInput = document.getElementById('senderMessage');
+            if (roleSelect) {
+                roleSelect.value = 'Interview Opportunity';
+            }
+            if (messageInput) {
+                messageInput.value = `Hello Beena,\n\nI am interested in learning more about your project "${projectName}". Could you provide a walkthrough or details about your work on this?`;
+            }
+            showToast(`Contact form updated for "${projectName}" inquiry.`);
+        }
+
+        // Safe & Modern Clipboard Copy Function
+        async function copyToClipboard(text, successMessage) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                } else {
+                    const temp = document.createElement("input");
+                    temp.value = text;
+                    document.body.appendChild(temp);
+                    temp.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(temp);
+                }
+                showToast(successMessage || "Copied to clipboard!");
+            } catch (err) {
+                showToast(successMessage || "Copied to clipboard!");
+            }
+        }
+
+        // Toast Alert Notification
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = 'px-4 py-2.5 rounded-xl bg-slate-900 text-white font-medium text-xs shadow-lg flex items-center gap-2 transform transition-all duration-300';
+            toast.innerHTML = `<i class="ph ph-check-circle text-emerald-400 text-base"></i> ${msg}`;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        // Toggle Formspree Helper Box
+        function toggleFormspreeHelper() {
+            const box = document.getElementById('formspreeHelperBox');
+            if (box) box.classList.toggle('hidden');
+        }
+
+        function saveFormspreeEndpoint() {
+            const val = document.getElementById('customFormspreeId').value.trim();
+            if (val) {
+                localStorage.setItem('beena_formspree_id', val);
+                showToast("Formspree ID saved successfully!");
+                toggleFormspreeHelper();
+            } else {
+                showToast("Please enter a valid Formspree ID");
+            }
+        }
+
+        // Direct WhatsApp Dispatch
+        function sendViaWhatsApp() {
+            const name = document.getElementById('senderName').value.trim() || 'Recruiter/Visitor';
+            const email = document.getElementById('senderEmail').value.trim() || 'Not specified';
+            const role = document.getElementById('targetRole').value;
+            const msg = document.getElementById('senderMessage').value.trim() || 'Hello Beena, I viewed your portfolio and would like to connect.';
+
+            const text = encodeURIComponent(
+                `Hi Beena, my name is ${name} (${email}).\nI am contacting you regarding the ${role} role.\n\nMessage:\n${msg}`
+            );
+            window.open(`https://wa.me/919359537528?text=${text}`, '_blank');
+            showToast("Redirecting to WhatsApp...");
+        }
+
+        // Contact Form Handler with Multi-Channel Delivery
+        async function handleContactSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const successBox = document.getElementById('formSuccess');
+
+            const name = document.getElementById('senderName').value.trim();
+            const email = document.getElementById('senderEmail').value.trim();
+            const role = document.getElementById('targetRole').value;
+            const message = document.getElementById('senderMessage').value.trim();
+
+            const formspreeId = localStorage.getItem('beena_formspree_id');
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="ph ph-spinner animate-spin text-base"></i> Sending...`;
+
+            // If Formspree ID is configured, send directly via Formspree API
+            if (formspreeId) {
+                try {
+                    const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify({ name, email, targetRole: role, message })
+                    });
+
+                    if (response.ok) {
+                        btn.innerHTML = `<i class="ph ph-check text-base"></i> Delivered!`;
+                        btn.classList.remove('bg-brand-600', 'hover:bg-brand-700');
+                        btn.classList.add('bg-emerald-600');
+                        successBox.classList.remove('hidden');
+                        document.getElementById('contactForm').reset();
+                        showToast("Message delivered directly to Beena's inbox!");
+                        return;
+                    }
+                } catch (err) {
+                    console.warn("Formspree attempt failed, falling back to mail client", err);
+                }
+            }
+
+            // Built-in Immediate Fallback: Open pre-formatted email to beenaparmar5605@gmail.com
+            const mailSubject = encodeURIComponent(`Portfolio Inquiry for ${role} - ${name}`);
+            const mailBody = encodeURIComponent(
+                `Dear Beena Parmar,\n\nName / Company: ${name}\nEmail: ${email}\nRole: ${role}\n\nMessage:\n${message}\n\nSent from your portfolio website.`
+            );
+
+            window.location.href = `mailto:beenaparmar5605@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+            setTimeout(() => {
+                btn.innerHTML = `<i class="ph ph-check text-base"></i> Email Triggered`;
+                btn.classList.remove('bg-brand-600', 'hover:bg-brand-700');
+                btn.classList.add('bg-emerald-600');
+                successBox.classList.remove('hidden');
+                showToast("Opening email client to send to beenaparmar5605@gmail.com");
+
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = `<i class="ph ph-envelope-simple text-base"></i> Send to Email`;
+                    btn.classList.add('bg-brand-600', 'hover:bg-brand-700');
+                    btn.classList.remove('bg-emerald-600');
+                }, 4000);
+            }, 600);
+        }
+    </script>
+</body>
+
+</html>
